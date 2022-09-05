@@ -1,4 +1,4 @@
-import { Menu, Utils } from "wrapper/Imports"
+import { Menu, Utils } from "github.com/octarine-public/wrapper/wrapper/Imports"
 
 const path = "scripts_files/translate"
 const base = "github.com/octarine-public/trees-rings"
