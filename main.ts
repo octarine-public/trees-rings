@@ -2,10 +2,10 @@ import { EventsX, FountainX, ParticlesX, TreeX } from "immortal-core/Imports"
 import { ArrayExtensions, Color, DOTA_GameState, EventsSDK, GameRules, Menu } from "wrapper/Imports"
 
 const entries = Menu.AddEntry("Visual")
-const menu = entries.AddNode("Tree rings")
+const menu = entries.AddNode("TreeRadius")
 const state = menu.AddToggle("State", true)
-const mode2x = menu.AddToggle("Mode alpha", true)
-const color = menu.AddColorPicker("Color squares", Color.Aqua)
+const mode2x = menu.AddToggle("Mode alpha", false)
+const color = menu.AddColorPicker("Color squares", Color.Black.SetA(190))
 
 let IsCreated = false
 const Trees: TreeX[] = []
@@ -17,6 +17,8 @@ state.OnValue(OnUpdate)
 mode2x.OnValue(OnUpdate)
 
 function OnUpdate() {
+
+	console.log(color.selected_color)
 
 	const fountain = Fountains.find(x => !x.IsEnemy())
 
