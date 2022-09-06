@@ -4,7 +4,6 @@ import { ArrayExtensions, Color, DOTA_GameState, EventsSDK, GameRules, Menu } fr
 const entries = Menu.AddEntry("Visual")
 const menu = entries.AddNode("TreeRings")
 const state = menu.AddToggle("State", true)
-const mode2x = menu.AddToggle("Mode alpha", false)
 const color = menu.AddColorPicker("Color squares", Color.Black.SetA(41))
 
 let IsCreated = false
@@ -14,7 +13,6 @@ const Fountains: FountainX[] = []
 
 color.OnValue(OnUpdate)
 state.OnValue(OnUpdate)
-mode2x.OnValue(OnUpdate)
 
 function OnUpdate() {
 
@@ -30,7 +28,6 @@ function OnUpdate() {
 		}
 
 		pSDK.DrawBox(tree.Handle, fountain, {
-			mode2X: mode2x.value,
 			Position: tree.Position,
 			Color: color.selected_color,
 			Alpha: color.selected_color.a,
