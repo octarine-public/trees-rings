@@ -3,7 +3,7 @@ import { ArrayExtensions, Color, DOTA_GameState, EventsSDK, GameRules, Menu } fr
 
 const entries = Menu.AddEntry("Visual")
 const menu = entries.AddNode("TreeRings")
-const state = menu.AddToggle("State", true)
+const state = menu.AddToggle("State")
 const color = menu.AddColorPicker("Color squares", Color.Black.SetA(41))
 
 let IsCreated = false
