@@ -1,5 +1,5 @@
-import { EventsX, FountainX, ParticlesX, TreeX } from "github.com/octarine-private/immortal-core/Imports"
-import { ArrayExtensions, Color, DOTA_GameState, EventsSDK, GameRules, Menu } from "github.com/octarine-public/wrapper/wrapper/Imports"
+import { EventsX, FountainX, ParticlesX, TreeX } from "github.com/octarine-private/immortal-core/index"
+import { ArrayExtensions, Color, DOTA_GameState, EventsSDK, GameRules, Menu } from "github.com/octarine-public/wrapper/index"
 
 const entries = Menu.AddEntry("Visual")
 const menu = entries.AddNode("TreeRings")
