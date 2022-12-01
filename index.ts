@@ -1,11 +1,6 @@
 import "./Translate"
 
-import {
-	EventsX,
-	FountainX,
-	ParticlesX,
-	TreeX
-} from "github.com/octarine-private/immortal-core/index"
+import { EventsX, FountainX, ParticlesX, TreeX } from "github.com/octarine-private/immortal-core/index"
 import {
 	ArrayExtensions,
 	Color,
@@ -30,7 +25,9 @@ state.OnValue(OnUpdate)
 
 function OnUpdate() {
 	const fountain = Fountains.find(x => !x.IsEnemy())
-	if (fountain === undefined) return
+	if (fountain === undefined) {
+		return
+	}
 
 	for (const tree of Trees) {
 		if (!state.value || !tree.IsValid || !tree.IsAlive) {
@@ -48,12 +45,18 @@ function OnUpdate() {
 }
 
 EventsSDK.on("Tick", () => {
-	if (!state.value || GameRules === undefined) return
+	if (!state.value || GameRules === undefined) {
+		return
+	}
 
 	const treeActive = Trees.find(x => !x.IsAlive)
-	if (treeActive !== undefined) OnUpdate()
+	if (treeActive !== undefined) {
+		OnUpdate()
+	}
 
-	if (IsCreated) return
+	if (IsCreated) {
+		return
+	}
 
 	if (
 		GameRules.GameState >= DOTAGameState.DOTA_GAMERULES_STATE_STRATEGY_TIME &&
@@ -65,7 +68,9 @@ EventsSDK.on("Tick", () => {
 })
 
 EventsX.on("EntityCreated", ent => {
-	if (ent instanceof TreeX) Trees.push(ent)
+	if (ent instanceof TreeX) {
+		Trees.push(ent)
+	}
 	if (ent instanceof FountainX) {
 		Fountains.push(ent)
 		OnUpdate()
@@ -78,7 +83,9 @@ EventsX.on("EntityDestroyed", ent => {
 		ArrayExtensions.arrayRemove(Trees, ent)
 	}
 
-	if (ent instanceof FountainX) ArrayExtensions.arrayRemove(Fountains, ent)
+	if (ent instanceof FountainX) {
+		ArrayExtensions.arrayRemove(Fountains, ent)
+	}
 })
 
 EventsX.on("GameEnded", () => {
